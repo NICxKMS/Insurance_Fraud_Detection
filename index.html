@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Shield | AI-Powered Insurance Claim Analysis</title>
+    <!-- Modern Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://img.icons8.com/color/48/000000/shield.png">
+    <style>
+        .github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}
+        @keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
+        @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
+        .github-corner {
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <!-- GitHub corner banner -->
+    <a href="https://github.com/yourusername/fraudshield-frontend" class="github-corner" aria-label="View source on GitHub" target="_blank" rel="noopener noreferrer">
+        <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#2563eb; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+            <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+            <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+            <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+        </svg>
+    </a>
+
+    <!-- Modern navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="navbar-brand">
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Fraud<strong>Shield</strong></span>
+                </div>
+            </a>
+            <div class="navbar-menu">
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#analyze" class="btn btn-primary btn-sm">Analyze Claim</a></li>
+                </ul>
+            </div>
+            <div class="navbar-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero section with animated elements -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-right">
+                <h1>AI-Powered Insurance Claim Analysis</h1>
+                <p>Our advanced machine learning model analyzes claim data in real-time to detect potential fraud with high accuracy.</p>
+                <div class="hero-buttons">
+                    <a href="#analyze" class="btn btn-primary">
+                        <i class="fas fa-search-dollar"></i> Analyze Claim
+                    </a>
+                    <a href="#how-it-works" class="btn btn-outline">
+                        <i class="fas fa-info-circle"></i> How It Works
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">99.4%</span>
+                        <span class="stat-label">Accuracy</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">&lt;1s</span>
+                        <span class="stat-label">Processing Time</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Availability</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left" data-aos-delay="200">
+                <img src="https://cdn.prod.website-files.com/64a83d4453b353ae789d6387/6659e6451eb038628ea14766_AI-Powered%20Sales%20Analytics%20for%20Effective%20Sales%20Strategies%20(1).png" alt="AI Analysis">
+                <div class="floating-badge">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Powered</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200" preserveAspectRatio="none">
+                <path fill="#ffffff" fill-opacity="1" d="M0,160L48,149.3C96,139,192,117,288,122.7C384,128,480,160,576,170.7C672,181,768,171,864,144C960,117,1056,75,1152,58.7C1248,43,1344,53,1392,58.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Features section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Features</span>
+                <h2>Why Choose Our Solution?</h2>
+                <p>Our advanced AI system provides accurate, real-time fraud detection</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Real-Time Analysis</h3>
+                    <p>Get instant results with our high-performance machine learning model</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>High Accuracy</h3>
+                    <p>Our model is trained on millions of insurance claims with 99.4% accuracy</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Modern API</h3>
+                    <p>Integrate with our RESTful API to automate your fraud detection processes</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Risk Factors</h3>
+                    <p>Understand what makes a claim suspicious with detailed risk analysis</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Process</span>
+                <h2>How It Works</h2>
+                <p>A simple three-step process to analyze any insurance claim</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                        <h3><i class="fas fa-clipboard-list"></i> Enter Claim Details</h3>
+                        <p>Fill out the form with all relevant information about the insurance claim.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                        <h3><i class="fas fa-brain"></i> AI Analysis</h3>
+                        <p>Our machine learning model analyzes dozens of factors to detect potential fraud patterns.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                        <h3><i class="fas fa-chart-pie"></i> Get Results</h3>
+                        <p>Receive detailed analysis with fraud probability and specific risk factors.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis form section -->
+    <section id="analyze" class="analyze">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Analysis</span>
+                <h2>Analyze Insurance Claim</h2>
+                <p>Enter claim details below to receive instant fraud analysis</p>
+            </div>
+            
+            <div class="form-container" data-aos="fade-up">
+                <div class="form-tabs">
+                    <button class="tab-btn active" data-tab="claim-details">
+                        <i class="fas fa-file-invoice-dollar"></i> Claim Details
+                    </button>
+                    <button class="tab-btn" data-tab="insured-info">
+                        <i class="fas fa-user"></i> Insured Info
+                    </button>
+                    <button class="tab-btn" data-tab="incident-details">
+                        <i class="fas fa-car-crash"></i> Incident Details
+                    </button>
+                </div>
+                
+                <form id="claim-form">
+                    <!-- Claim Details Tab -->
+                    <div class="tab-content active" id="claim-details-content">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="months_as_customer">Months as Customer</label>
+                                <input type="number" id="months_as_customer" name="months_as_customer" min="1" max="600" value="120" required>
+                                <small>Duration of customer relationship (1-600 months)</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="policy_deductable">Policy Deductible</label>
+                                <select id="policy_deductable" name="policy_deductable" required>
+                                    <option value="500">$500</option>
+                                    <option value="1000" selected>$1,000</option>
+                                    <option value="2000">$2,000</option>
+                                </select>
+                                <small>Amount the insured pays before coverage begins</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="umbrella_limit">Umbrella Limit</label>
+                                <input type="number" id="umbrella_limit" name="umbrella_limit" min="0" max="10000000" step="1000" value="1000000" required>
+                                <small>Additional liability coverage (0-10,000,000)</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="capital-gains">Capital Gains</label>
+                                <input type="number" id="capital-gains" name="capital-gains" min="0" max="100000" step="100" value="50000" required>
+                                <small>Capital gains from investments (0-100,000)</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="capital-loss">Capital Loss</label>
+                                <input type="number" id="capital-loss" name="capital-loss" min="-100000" max="0" step="100" value="-10000" required>
+                                <small>Capital losses from investments (-100,000-0)</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="policy_csl">Policy CSL</label>
+                                <select id="policy_csl" name="policy_csl" required>
+                                    <option value="250/500" selected>250/500</option>
+                                    <option value="500/1000">500/1000</option>
+                                </select>
+                                <small>Combined single limit coverage</small>
+                            </div>
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <button type="button" class="btn btn-primary next-tab" data-next="insured-info">
+                                Next: Insured Info <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Insured Info Tab -->
+                    <div class="tab-content" id="insured-info-content">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="insured_sex">Insured Sex</label>
+                                <select id="insured_sex" name="insured_sex" required>
+                                    <option value="FEMALE">Female</option>
+                                    <option value="MALE" selected>Male</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="insured_education">Education Level</label>
+                                <select id="insured_education" name="insured_education" required>
+                                    <option value="High School">High School</option>
+                                    <option value="College" selected>College</option>
+                                    <option value="Masters">Masters</option>
+                                    <option value="PhD">PhD</option>
+                                    <option value="MD">MD</option>
+                                    <option value="JD">JD</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="insured_occupation">Occupation</label>
+                                <select id="insured_occupation" name="insured_occupation" required>
+                                    <option value="prof-specialty" selected>Professional</option>
+                                    <option value="exec-managerial">Executive</option>
+                                    <option value="sales">Sales</option>
+                                    <option value="tech-support">Tech Support</option>
+                                    <option value="craft-repair">Craft/Repair</option>
+                                    <option value="other-service">Other Service</option>
+                                    <option value="armed-forces">Armed Forces</option>
+                                    <option value="farming-fishing">Farming/Fishing</option>
+                                    <option value="handlers-cleaners">Handlers/Cleaners</option>
+                                    <option value="machine-op-inspct">Machine Operator</option>
+                                    <option value="priv-house-serv">Private House Service</option>
+                                    <option value="protective-serv">Protective Service</option>
+                                    <option value="transport-moving">Transport</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="insured_relationship">Relationship</label>
+                                <select id="insured_relationship" name="insured_relationship" required>
+                                    <option value="husband" selected>Husband</option>
+                                    <option value="wife">Wife</option>
+                                    <option value="unmarried">Unmarried</option>
+                                    <option value="not-in-family">Not in family</option>
+                                    <option value="own-child">Own child</option>
+                                    <option value="other-relative">Other relative</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <button type="button" class="btn btn-outline prev-tab" data-prev="claim-details">
+                                <i class="fas fa-chevron-left"></i> Previous
+                            </button>
+                            <button type="button" class="btn btn-primary next-tab" data-next="incident-details">
+                                Next: Incident Details <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Incident Details Tab -->
+                    <div class="tab-content" id="incident-details-content">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="incident_hour">Incident Hour</label>
+                                <input type="number" id="incident_hour" name="incident_hour" min="0" max="23" value="14" required>
+                                <small>Hour when incident occurred (0-23)</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="vehicles_involved">Vehicles Involved</label>
+                                <input type="number" id="vehicles_involved" name="vehicles_involved" min="1" max="4" value="2" required>
+                                <small>Number of vehicles in incident (1-4)</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="bodily_injuries">Bodily Injuries</label>
+                                <input type="number" id="bodily_injuries" name="bodily_injuries" min="0" max="2" value="1" required>
+                                <small>Number of bodily injuries (0-2)</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="witnesses">Witnesses</label>
+                                <input type="number" id="witnesses" name="witnesses" min="0" max="3" value="2" required>
+                                <small>Number of witnesses (0-3)</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="injury_claim">Injury Claim</label>
+                                <input type="number" id="injury_claim" name="injury_claim" min="0" max="20000" step="100" value="5000" required>
+                                <small>Amount claimed for injuries (0-20,000)</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="property_claim">Property Claim</label>
+                                <input type="number" id="property_claim" name="property_claim" min="0" max="20000" step="100" value="8000" required>
+                                <small>Amount claimed for property (0-20,000)</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="vehicle_claim">Vehicle Claim</label>
+                                <input type="number" id="vehicle_claim" name="vehicle_claim" min="0" max="80000" step="100" value="20000" required>
+                                <small>Amount claimed for vehicle (0-80,000)</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="incident_type">Incident Type</label>
+                                <select id="incident_type" name="incident_type" required>
+                                    <option value="Multi-vehicle Collision" selected>Multi-vehicle Collision</option>
+                                    <option value="Single Vehicle Collision">Single Vehicle Collision</option>
+                                    <option value="Parked Car">Parked Car</option>
+                                    <option value="Vehicle Theft">Vehicle Theft</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="collision_type">Collision Type</label>
+                                <select id="collision_type" name="collision_type" required>
+                                    <option value="Front Collision" selected>Front Collision</option>
+                                    <option value="Rear Collision">Rear Collision</option>
+                                    <option value="Side Collision">Side Collision</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="incident_severity">Incident Severity</label>
+                                <select id="incident_severity" name="incident_severity" required>
+                                    <option value="Minor Damage">Minor Damage</option>
+                                    <option value="Major Damage" selected>Major Damage</option>
+                                    <option value="Total Loss">Total Loss</option>
+                                    <option value="Trivial Damage">Trivial Damage</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="authorities_contacted">Authorities Contacted</label>
+                                <select id="authorities_contacted" name="authorities_contacted" required>
+                                    <option value="None">None</option>
+                                    <option value="Police" selected>Police</option>
+                                    <option value="Fire">Fire Department</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="property_damage">Property Damage</label>
+                                <select id="property_damage" name="property_damage" required>
+                                    <option value="NO">No</option>
+                                    <option value="YES" selected>Yes</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="police_report">Police Report Filed</label>
+                                <select id="police_report" name="police_report" required>
+                                    <option value="NO">No</option>
+                                    <option value="YES" selected>Yes</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <button type="button" class="btn btn-outline prev-tab" data-prev="insured-info">
+                                <i class="fas fa-chevron-left"></i> Previous
+                            </button>
+                            <button type="submit" id="submit-btn" class="btn btn-primary">
+                                <span class="btn-text">Analyze Claim</span>
+                                <span class="btn-icon"><i class="fas fa-shield-alt"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Loading Indicator with better visibility -->
+            <div id="loading" class="loading-container" style="display: none;">
+                <div class="loading-animation">
+                    <div class="spinner"></div>
+                    <div class="loading-text">
+                        <h3><i class="fas fa-robot"></i> Analyzing claim data</h3>
+                        <p>Our AI is processing your information...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Error Display with enhanced visibility -->
+            <div id="error" class="error-message-container" style="display: none;">
+                <div class="error-content">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p id="error-text"></p>
+                </div>
+            </div>
+            
+            <!-- Results container -->
+            <div id="results" class="results-container" style="display: none;"></div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Fraud<strong>Shield</strong></span>
+                    </div>
+                    <p>Advanced AI-powered insurance fraud detection</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product <i class="fas fa-cube"></i></h4>
+                        <ul>
+                            <li><a href="#features"><i class="fas fa-check"></i> Features</a></li>
+                            <li><a href="#how-it-works"><i class="fas fa-cogs"></i> How It Works</a></li>
+                            <li><a href="#analyze"><i class="fas fa-tools"></i> Analysis Tool</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources <i class="fas fa-book"></i></h4>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-file-alt"></i> Documentation</a></li>
+                            <li><a href="#"><i class="fas fa-code"></i> API Reference</a></li>
+                            <li><a href="#"><i class="fas fa-rss"></i> Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company <i class="fas fa-building"></i></h4>
+                        <ul>
+                            <li><a href="https://github.com/NICxKMS" target="_blank" rel="noopener noreferrer"><i class="fas fa-info-circle"></i> About Nikhil Kumar</a></li>
+                            <li><a href="mailto:support@github_Nikhil.com"><i class="fas fa-envelope"></i> Contact</a></li>
+                            <li><a href="#"><i class="fas fa-lock"></i> Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FraudShield. Developed by <a href="https://github.com/NICxKMS" target="_blank" rel="noopener noreferrer">Nikhil Kumar</a></p>
+                <div class="social-links">
+                    <a href="https://twitter.com/NICxKMS" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/nikhil-kumar-55265b258/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/NICxKMS" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html> 

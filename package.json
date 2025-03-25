@@ -1,0 +1,12 @@
+{
+  "name": "fraudshield-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for the FraudShield insurance fraud detection system",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "build": "node build.js",
+    "build:prod": "API_URL=https://your-api-domain.com/api node build.js"
+  },
+  "author": "Nikhil Kumar",
+  "license": "MIT"
+} 
