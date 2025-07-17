@@ -484,6 +484,18 @@ const init = () => {
         if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
 
+    // Dark Mode Toggle
+    const themeSwitch = document.querySelector('#checkbox');
+    if (themeSwitch) {
+        themeSwitch.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        });
+    }
+
     // Hero wave
     const adjustHeroWave = () => {
         const heroWave = $('.hero-wave');
