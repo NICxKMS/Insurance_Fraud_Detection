@@ -14,23 +14,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://img.icons8.com/color/48/000000/shield.png">
-    <style>
-        .github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}
-        @keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
-        @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
-        .github-corner {
-            position: fixed;
-            top: 0;
-            right: 0;
-            z-index: 9999;
-        }
-    </style>
 </head>
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
     <!-- GitHub corner banner -->
-    <a href="https://github.com/yourusername/fraudshield-frontend" class="github-corner" aria-label="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <a href="https://github.com/NICxKMS/Insurance_Fraud_Detection" class="github-corner" aria-label="View source on GitHub" target="_blank" rel="noopener noreferrer">
         <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#2563eb; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
             <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
             <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
@@ -52,11 +47,20 @@
                     <li><a href="#" class="active">Home</a></li>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#case-studies">Case Studies</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#blog">Blog</a></li>
                     <li><a href="#analyze" class="btn btn-primary btn-sm">Analyze Claim</a></li>
                 </ul>
             </div>
             <div class="navbar-toggle">
                 <i class="fas fa-bars"></i>
+            </div>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
             </div>
         </div>
     </nav>
@@ -77,21 +81,21 @@
                 </div>
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <span class="stat-number">99.4%</span>
+                        <span class="stat-number" data-target="99.4">0</span>%
                         <span class="stat-label">Accuracy</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">&lt;1s</span>
+                        <span class="stat-number" data-target="1">&lt;0</span>s
                         <span class="stat-label">Processing Time</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">24/7</span>
+                        <span class="stat-number" data-target="24">0</span>/7
                         <span class="stat-label">Availability</span>
                     </div>
                 </div>
             </div>
             <div class="hero-image" data-aos="fade-left" data-aos-delay="200">
-                <img src="https://cdn.prod.website-files.com/64a83d4453b353ae789d6387/6659e6451eb038628ea14766_AI-Powered%20Sales%20Analytics%20for%20Effective%20Sales%20Strategies%20(1).png" alt="AI Analysis">
+                <img src="images/hero-image.png" alt="AI Analysis">
                 <div class="floating-badge">
                     <i class="fas fa-robot"></i>
                     <span>AI Powered</span>
@@ -174,6 +178,153 @@
                     <div class="timeline-content">
                         <h3><i class="fas fa-chart-pie"></i> Get Results</h3>
                         <p>Receive detailed analysis with fraud probability and specific risk factors.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="case-studies" class="case-studies">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Results</span>
+                <h2>Real-World Impact</h2>
+                <p>See how FraudShield has helped insurance companies reduce losses and improve efficiency.</p>
+            </div>
+            <div class="case-studies-grid">
+                <div class="case-study-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="case-study-image">
+                        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="Case Study 1">
+                    </div>
+                    <div class="case-study-content">
+                        <h3>Major Insurer Cuts Fraud by 30%</h3>
+                        <p>A leading auto insurer integrated FraudShield and saw a 30% reduction in fraudulent claims within the first six months, saving them over $15 million.</p>
+                        <a href="#" class="btn btn-outline btn-sm">Read More</a>
+                    </div>
+                </div>
+                <div class="case-study-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="case-study-image">
+                        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="Case Study 2">
+                    </div>
+                    <div class="case-study-content">
+                        <h3>Streamlined Claims Processing</h3>
+                        <p>By automatically flagging high-risk claims, a regional insurance provider was able to reduce their manual review time by 75% and focus on legitimate customers.</p>
+                        <a href="#" class="btn btn-outline btn-sm">Read More</a>
+                    </div>
+                </div>
+                <div class="case-study-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="case-study-image">
+                        <img src="https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="Case Study 3">
+                    </div>
+                    <div class="case-study-content">
+                        <h3>Uncovering Sophisticated Fraud Rings</h3>
+                        <p>FraudShield's advanced pattern recognition helped identify a multi-state fraud ring, leading to the recovery of over $5 million in fraudulent payouts.</p>
+                        <a href="#" class="btn btn-outline btn-sm">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Testimonials</span>
+                <h2>What Our Clients Say</h2>
+                <p>We are trusted by leading insurance providers to deliver accurate and reliable fraud detection.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Author 1">
+                        <div>
+                            <h4>John Doe</h4>
+                            <p>CEO, ABC Insurance</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"FraudShield has been a game-changer for our business. The accuracy of the AI model is incredible, and it has saved us millions in fraudulent claims."</p>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Author 2">
+                        <div>
+                            <h4>Jane Smith</h4>
+                            <p>Head of Claims, XYZ Insurance</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"The integration was seamless, and the real-time analysis has allowed us to process claims faster and more efficiently. Our team can now focus on what matters most - our customers."</p>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Author 3">
+                        <div>
+                            <h4>Peter Jones</h4>
+                            <p>CTO, Global Insure</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"The API is robust and well-documented, making it easy for our developers to integrate with our existing systems. The level of detail in the risk analysis is impressive."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Insights</span>
+                <h2>From Our Blog</h2>
+                <p>Stay up-to-date with the latest trends in AI, insurance, and fraud detection.</p>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-post-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="blog-post-image">
+                        <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="Blog Post 1">
+                    </div>
+                    <div class="blog-post-content">
+                        <div class="blog-post-meta">
+                            <span><i class="fas fa-calendar-alt"></i> Oct 26, 2024</span>
+                            <span><i class="fas fa-user"></i> By Admin</span>
+                        </div>
+                        <h3>The Future of AI in Insurance</h3>
+                        <p>Discover how artificial intelligence is transforming the insurance industry, from underwriting to claims processing.</p>
+                        <a href="#" class="btn btn-outline btn-sm">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-post-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="blog-post-image">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d044b408277?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="Blog Post 2">
+                    </div>
+                    <div class="blog-post-content">
+                        <div class="blog-post-meta">
+                            <span><i class="fas fa-calendar-alt"></i> Oct 20, 2024</span>
+                            <span><i class="fas fa-user"></i> By Admin</span>
+                        </div>
+                        <h3>Top 5 Insurance Fraud Schemes of 2024</h3>
+                        <p>Learn about the most common types of insurance fraud and how to protect your business from them.</p>
+                        <a href="#" class="btn btn-outline btn-sm">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-post-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="blog-post-image">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="Blog Post 3">
+                    </div>
+                    <div class="blog-post-content">
+                        <div class="blog-post-meta">
+                            <span><i class="fas fa-calendar-alt"></i> Oct 15, 2024</span>
+                            <span><i class="fas fa-user"></i> By Admin</span>
+                        </div>
+                        <h3>How Machine Learning is Revolutionizing Risk Assessment</h3>
+                        <p>An in-depth look at how machine learning algorithms are being used to more accurately assess risk and price policies.</p>
+                        <a href="#" class="btn btn-outline btn-sm">Read More</a>
                     </div>
                 </div>
             </div>
@@ -509,8 +660,13 @@
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <a href="#" id="back-to-top" class="btn btn-primary btn-lg">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="js/app.js"></script>
+    <script type="module" src="js/app.js"></script>
 </body>
 </html> 

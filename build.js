@@ -1,75 +1,93 @@
-const fs = require('fs');
+const fs = require('fs-extra');
 const path = require('path');
+const { execSync } = require('child_process');
 
 // Configuration
 const config = {
-  // Change this to your production API URL
   apiUrl: process.env.API_URL || 'https://your-api-domain.com/api',
-  
-  // Source and destination directories
   sourceDir: './',
-  destDir: '../dist',
-  
-  // Files to copy
-  filesToCopy: [
+  destDir: './dist',
+  assets: [
     'index.html',
-    'css/**/*',
-    'js/**/*'
-  ]
+    'images'
+  ],
+  styles: ['css/styles.css', 'css/dark-mode.css'],
+  scripts: 'js/app.js'
 };
 
-// Create destination directory if it doesn't exist
-if (!fs.existsSync(config.destDir)) {
-  fs.mkdirSync(config.destDir, { recursive: true });
-}
+// Main build function
+async function build() {
+  try {
+    console.log('Starting build process...');
 
-// Copy files
-console.log('Copying files...');
-for (const filePath of config.filesToCopy) {
-  if (filePath.includes('*')) {
-    // Handle glob patterns
-    const baseDir = filePath.split('*')[0];
-    const sourcePath = path.join(config.sourceDir, baseDir);
-    const destPath = path.join(config.destDir, baseDir);
-    
-    if (!fs.existsSync(destPath)) {
-      fs.mkdirSync(destPath, { recursive: true });
+    // 1. Clean the destination directory
+    console.log(`Cleaning ${config.destDir}...`);
+    fs.emptyDirSync(config.destDir);
+
+    // 2. Copy static assets
+    console.log('Copying static assets...');
+    for (const asset of config.assets) {
+      const sourcePath = path.join(config.sourceDir, asset);
+      const destPath = path.join(config.destDir, asset);
+      console.log(`Checking for asset: ${sourcePath}`);
+      if (fs.existsSync(sourcePath)) {
+        console.log(`Copying ${sourcePath} to ${destPath}`);
+        fs.copySync(sourcePath, destPath);
+        console.log(`Copied ${asset}`);
+      } else {
+        console.log(`Asset not found: ${sourcePath}`);
+      }
     }
-    
-    const files = fs.readdirSync(sourcePath);
-    for (const file of files) {
-      fs.copyFileSync(
-        path.join(sourcePath, file),
-        path.join(destPath, file)
-      );
-      console.log(`Copied ${baseDir}${file}`);
+
+    // 3. Minify CSS
+    console.log('Minifying CSS...');
+    for (const style of config.styles) {
+      const sourcePath = path.join(config.sourceDir, style);
+      const destPath = path.join(config.destDir, style);
+      fs.ensureDirSync(path.dirname(destPath));
+      execSync(`npx cleancss -o ${destPath} ${sourcePath}`, { stdio: 'inherit' });
+      console.log(`Minified ${style}`);
     }
-  } else {
-    // Handle individual files
-    const destPath = path.join(config.destDir, filePath);
-    const destDir = path.dirname(destPath);
-    
-    if (!fs.existsSync(destDir)) {
-      fs.mkdirSync(destDir, { recursive: true });
-    }
-    
-    fs.copyFileSync(
-      path.join(config.sourceDir, filePath),
-      destPath
+    console.log('CSS minified successfully.');
+
+    // 4. Minify JavaScript and update API URL
+    console.log('Minifying JavaScript and updating API URL...');
+    const jsSourcePath = path.join(config.sourceDir, config.scripts);
+    const jsDestPath = path.join(config.destDir, config.scripts);
+    let jsContent = fs.readFileSync(jsSourcePath, 'utf8');
+    jsContent = jsContent.replace(
+      /apiBaseUrl: ".*?"/,
+      `apiBaseUrl: "${config.apiUrl}"`
     );
-    console.log(`Copied ${filePath}`);
+    fs.ensureDirSync(path.dirname(jsDestPath));
+    fs.writeFileSync('temp_app.js', jsContent, 'utf8');
+    execSync(`npx uglifyjs temp_app.js -o ${jsDestPath} -c -m`, { stdio: 'inherit' });
+    fs.removeSync('temp_app.js');
+    console.log('JavaScript minified successfully.');
+
+    // 5. Update HTML to point to minified files
+    console.log('Updating HTML references...');
+    const indexPath = path.join(config.destDir, 'index.html');
+    let indexContent = fs.readFileSync(indexPath, 'utf8');
+    indexContent = indexContent.replace(
+      'href="css/styles.css"',
+      'href="css/styles.css"'
+    ).replace(
+      'src="js/app.js"',
+      'src="js/app.js"'
+    );
+    fs.writeFileSync(indexPath, indexContent, 'utf8');
+
+    console.log('\nBuild completed successfully!');
+    console.log(`- Output directory: ${config.destDir}`);
+    console.log(`- API URL set to: ${config.apiUrl}`);
+    console.log('- Ready for deployment.');
+
+  } catch (error) {
+    console.error('\nBuild failed:', error.message);
+    process.exit(1);
   }
 }
 
-// Update API URL in app.js
-console.log('Updating API URL...');
-const appJsPath = path.join(config.destDir, 'js/app.js');
-let appJsContent = fs.readFileSync(appJsPath, 'utf8');
-appJsContent = appJsContent.replace(
-  /const API_BASE_URL = .*?;/,
-  `const API_BASE_URL = "${config.apiUrl}"; // Updated by build script`
-);
-fs.writeFileSync(appJsPath, appJsContent, 'utf8');
-
-console.log('Build completed! The contents of the dist directory are ready for deployment.');
-console.log(`API URL set to: ${config.apiUrl}`); 
+// Run the build
+build();

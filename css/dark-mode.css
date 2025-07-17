@@ -1,0 +1,79 @@
+body.dark-mode {
+    --primary-color: #1a73e8;
+    --primary-dark: #1558b8;
+    --primary-light: #4a8df0;
+    --secondary-color: #e8f0fe;
+    --secondary-dark: #c2d4f8;
+    --secondary-light: #ffffff;
+    --white: #121212;
+    --gray-50: #1a1a1a;
+    --gray-100: #2a2a2a;
+    --gray-200: #3a3a3a;
+    --gray-300: #4a4a4a;
+    --gray-400: #6a6a6a;
+    --gray-500: #8a8a8a;
+    --gray-600: #aaaaaa;
+    --gray-700: #cccccc;
+    --gray-800: #eeeeee;
+    --gray-900: #ffffff;
+    --text-dark: #ffffff;
+    --text-medium: #cccccc;
+    --text-light: #aaaaaa;
+    --background-color: #121212;
+    --surface-color: #1e1e1e;
+    --surface-hover: #2a2a2a;
+}
+
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+}
+
+input:checked + .slider {
+    background-color: #1a73e8;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
