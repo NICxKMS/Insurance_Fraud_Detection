@@ -1,7 +1,5 @@
 <div align="center">
-  <a href="https://fraudshield.example.com" target="_blank">
-    <img src="https://img.icons8.com/color/48/000000/shield.png" alt="FraudShield Logo" width="150">
-  </a>
+  <img src="https://raw.githubusercontent.com/NICxKMS/Insurance_Fraud_Detection/main/images/hero-image.png" alt="FraudShield Logo" width="150">
   <h1 align="center">FraudShield Frontend</h1>
   <p align="center">
     <i>A stunning and intuitive frontend for the FraudShield insurance fraud detection system. This interface is engineered for real-time analysis and dynamic visualization of claim data, providing an unparalleled user experience.</i>
@@ -27,13 +25,9 @@
 
 ## 🚀 Live Demo
 
-Experience FraudShield in action: **[Live Demo](https://nicxkms.github.io/Insurance_Fraud_Detection/)**
+A live demo of the project is not available at this time.
 
-<p align="center">
-  <a href="https://nicxkms.github.io/Insurance_Fraud_Detection/" target="_blank">
-    <img src="images/hero-image.png" alt="FraudShield Screenshot" width="800">
-  </a>
-</p>
+---
 
 ---
 
