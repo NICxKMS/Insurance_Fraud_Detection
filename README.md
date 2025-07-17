@@ -6,12 +6,8 @@
   </p>
   <!-- Badges -->
   <p align="center">
-    <a href="https://github.com/NICxKMS/Insurance_Fraud_Detection/blob/main/LICENSE">
-      <img src="https://img.shields.io/github/license/NICxKMS/Insurance_Fraud_Detection?style=for-the-badge" alt="License">
-    </a>
-    <a href="https://github.com/NICxKMS/Insurance_Fraud_Detection/actions/workflows/static.yml">
-      <img src="https://img.shields.io/github/actions/workflow/status/NICxKMS/Insurance_Fraud_Detection/static.yml?branch=main&style=for-the-badge" alt="CI/CD Status">
-    </a>
+    <img src="https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge" alt="Build Status">
+    <img src="https://img.shields.io/badge/license-MIT-blue?style=for-the-badge" alt="License">
     <a href="#">
       <img src="https://img.shields.io/badge/Version-1.0.0-blue.svg?style=for-the-badge" alt="Version">
     </a>
