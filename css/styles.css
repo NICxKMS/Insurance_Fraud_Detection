@@ -139,6 +139,30 @@
   ul, ol {
     list-style: none;
   }
+
+  /* ===== PRELOADER ===== */
+  #preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease;
+  }
+
+  #preloader .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--gray-200);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
   
   /* ===== TYPOGRAPHY ===== */
   h1, h2, h3, h4, h5, h6 {
@@ -627,6 +651,153 @@
     color: var(--text-light);
   }
   
+  /* ===== CASE STUDIES SECTION ===== */
+  .case-studies {
+    background-color: var(--background-color);
+  }
+
+  .case-studies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-8);
+  }
+
+  .case-study-card {
+    background: var(--surface-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+  }
+
+  .case-study-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .case-study-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .case-study-content {
+    padding: var(--space-8);
+  }
+
+  .case-study-content h3 {
+    margin-bottom: var(--space-4);
+  }
+
+  .case-study-content p {
+    margin-bottom: var(--space-6);
+    color: var(--text-light);
+  }
+
+  /* ===== TESTIMONIALS SECTION ===== */
+  .testimonials {
+    background-color: var(--surface-color);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-8);
+  }
+
+  .testimonial-card {
+    background: var(--background-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--space-6);
+  }
+
+  .testimonial-author img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: var(--space-4);
+  }
+
+  .testimonial-author h4 {
+    margin-bottom: 0;
+  }
+
+  .testimonial-author p {
+    margin-bottom: 0;
+    color: var(--text-light);
+  }
+
+  .testimonial-content p {
+    font-style: italic;
+    color: var(--text-medium);
+    margin-bottom: 0;
+  }
+
+  /* ===== BLOG SECTION ===== */
+  .blog {
+    background-color: var(--background-color);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-8);
+  }
+
+  .blog-post-card {
+    background: var(--surface-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+  }
+
+  .blog-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .blog-post-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .blog-post-content {
+    padding: var(--space-8);
+  }
+
+  .blog-post-meta {
+    display: flex;
+    gap: var(--space-6);
+    color: var(--text-light);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-4);
+  }
+
+  .blog-post-meta span i {
+    margin-right: var(--space-2);
+    color: var(--primary-color);
+  }
+
+  .blog-post-content h3 {
+    margin-bottom: var(--space-4);
+  }
+
+  .blog-post-content p {
+    margin-bottom: var(--space-6);
+    color: var(--text-light);
+  }
+
   /* ===== FORM STYLING ===== */
   .analyze {
     background-color: var(--surface-color);
@@ -1123,6 +1294,21 @@
     transform: translateY(-3px);
   }
   
+  /* ===== BACK TO TOP BUTTON ===== */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: none;
+    z-index: 1000;
+    border-radius: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    padding: 0;
+    font-size: 1.5rem;
+    box-shadow: var(--shadow-lg);
+  }
+
   /* ===== RESPONSIVE DESIGN ===== */
   @media (max-width: 1024px) {
     .hero {
